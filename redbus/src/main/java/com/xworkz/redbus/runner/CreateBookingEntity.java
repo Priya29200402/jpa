@@ -36,8 +36,6 @@ public class CreateBookingEntity {
             System.out.println("Data Saved:"+entity);
             et.commit();
 
-
-
         }catch (PersistenceException e){
             et.rollback();
             e.getMessage();

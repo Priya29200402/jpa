@@ -15,11 +15,11 @@ import javax.persistence.*;
 
 public class CancelEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private Integer id;
 
-    @Column(name="Ticket Number")
+    @Column(name="Ticket_Number")
     private Integer ticketNumber;
 
     @Column(name="Reason")
