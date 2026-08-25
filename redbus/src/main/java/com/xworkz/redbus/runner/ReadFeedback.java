@@ -2,28 +2,22 @@ package com.xworkz.redbus.runner;
 
 import com.xworkz.redbus.entity.FeedbackEntity;
 
-import javax.persistence.*;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.PersistenceException;
 
-public class CreateFeedback {
+public class ReadFeedback {
     public static void main(String[] args) {
-        FeedbackEntity feedbackEntity = new FeedbackEntity();
-        feedbackEntity.setRating(8);
-        feedbackEntity.setComment("Good service and comfortable journey");
-
         EntityManagerFactory emf = null;
         EntityManager em = null;
-        EntityTransaction et = null;
 
         try{
             emf= Persistence.createEntityManagerFactory("x-workz");
             em = emf.createEntityManager();
-            et = em.getTransaction();
-            et.begin();
-            em.persist(feedbackEntity);
-            System.out.println("Feedback saved: " + feedbackEntity);
-            et.commit();
+            FeedbackEntity feedbackEntity = em.find(FeedbackEntity.class, 1);
+            System.out.println("Entity Found:"+feedbackEntity);
         }catch (PersistenceException e){
-            et.rollback();
             e.getMessage();
         }finally{
             if(emf != null){
@@ -33,6 +27,5 @@ public class CreateFeedback {
                 em.close();
             }
         }
-
     }
 }
