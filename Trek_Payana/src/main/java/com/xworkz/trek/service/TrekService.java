@@ -5,5 +5,11 @@ import com.xworkz.trek.dto.TrekDTO;
 import java.util.List;
 
 public interface TrekService {
-    Boolean validateAndSave(List<TrekDTO> dto);
+    Boolean validateAndSaveAll(List<TrekDTO> dto);
+
+    String validateAndSave(TrekDTO dto);
+
+    TrekDTO findById(Integer id);
+
+
 }

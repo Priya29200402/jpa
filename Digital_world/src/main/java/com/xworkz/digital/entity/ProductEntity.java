@@ -12,6 +12,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @ToString
 @Table(name="product_info")
+@NamedQuery(name="getAllProductEntity",query = "select p from ProductEnity p ")
 
 public class ProductEntity {
     @Id

@@ -1,6 +1,7 @@
 package com.xworkz.trek.dao.impl;
 
 import com.xworkz.trek.dao.TrekDAO;
+import com.xworkz.trek.dto.TrekDTO;
 import com.xworkz.trek.entity.TrekEntity;
 
 import javax.persistence.*;
@@ -97,4 +98,5 @@ public class TrekDAOImpl implements TrekDAO {
         }
         return entity;
     }
+
 }

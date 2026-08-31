@@ -13,7 +13,7 @@ public class TrekServiceImpl implements TrekService {
 
     private TrekDAO trekDAO = new TrekDAOImpl();
     @Override
-    public Boolean validateAndSave(List<TrekDTO> dto) {
+    public Boolean validateAndSaveAll(List<TrekDTO> dto) {
      Boolean isSaved = false;
 
      if(dto != null){
@@ -32,5 +32,44 @@ public class TrekServiceImpl implements TrekService {
      }
 
         return isSaved;
+    }
+
+    @Override
+    public String validateAndSave(TrekDTO dto) {
+        String isSaved=null;
+
+        if(dto!=null){
+            TrekEntity trekEntity = new TrekEntity();
+            trekEntity.setPlace(dto.getPlace());
+            trekEntity.setDate(dto.getDate());
+            trekEntity.setDate(dto.getDate());
+
+            String saved=trekDAO.save(trekEntity);
+
+            if(saved!=null){
+                isSaved="Data Saved Successfully";
+            }else{
+                isSaved="Data Not Saved";
+            }
+        }else {
+            isSaved="Data is Empty";
+        }
+
+        return isSaved;
+    }
+
+    @Override
+    public TrekDTO findById(Integer id) {
+        TrekDTO dto=null;
+        if(id != null){
+            TrekEntity entity=trekDAO.getById(id);
+
+            if(entity!=null){
+                dto=new TrekDTO(entity.getPlace(),entity.getDate(),entity.getNoOfMember());
+            }else {
+                dto =null;
+            }
+        }
+        return dto;
     }
 }
