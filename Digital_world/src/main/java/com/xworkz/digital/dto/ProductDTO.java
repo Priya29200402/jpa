@@ -16,6 +16,5 @@ public class ProductDTO {
     public ProductDTO(String name, Double price) {
         this.name = name;
         this.price = price;
-        this.id = id;
     }
 }

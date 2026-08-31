@@ -73,8 +73,7 @@ public class ProductDAOImpl implements ProductDAO {
     }
 
     @Override
-    public ProductEntity getProductEntityById(Integer id) {
-        System.out.println("Getting ProductDTO by ID:"+id);
+    public ProductEntity getProductEntityByIdAndName(Integer id,String name) {
         ProductEntity productEntity=null;
         EntityManagerFactory emf =null;
 

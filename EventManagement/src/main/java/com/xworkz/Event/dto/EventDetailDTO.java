@@ -14,4 +14,7 @@ public class EventDetailDTO {
     private String eventName;
     private String eventDescription;
     private LocalDate eventDate;
+
+    public EventDetailDTO(String eventName, LocalDate eventDate, String eventDescription) {
+    }
 }

@@ -1,9 +1,6 @@
 package com.xworkz.Event.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -12,6 +9,7 @@ import java.time.LocalDate;
 @Setter
 @ToString
 @Entity
+@NoArgsConstructor
 @Table(name="event_table")
 
 public class EventEntity {
@@ -25,4 +23,7 @@ public class EventEntity {
     private String eventDescription;
     @Column(name = "date")
     private LocalDate eventDate;
+
+    public EventEntity(String eventName, LocalDate eventDate, String eventDescription) {
+    }
 }

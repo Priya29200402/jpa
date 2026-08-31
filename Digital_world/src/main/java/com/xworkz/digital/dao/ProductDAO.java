@@ -10,5 +10,5 @@ public interface ProductDAO {
 
     Boolean saveAll(List<ProductEntity> entityList);
 
-    public ProductEntity getProductEntityById(Integer id);
+    public ProductEntity getProductEntityByIdAndName(Integer id,String name);
 }

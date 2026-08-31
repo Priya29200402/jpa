@@ -6,11 +6,10 @@ import com.xworkz.digital.dto.ProductDTO;
 import com.xworkz.digital.entity.ProductEntity;
 import com.xworkz.digital.service.ProductService;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ProductServiceImpl implements ProductService {
+public class ProductServiceImpl implements ProductService{
 
     private ProductDAO  productDAO = new ProductDAOImpl();
 
@@ -58,11 +57,11 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public ProductDTO findProductById(Integer id) {
-        System.out.println("findProductById:"+id);
+    public ProductDTO findProductByIdAndName(Integer id, String name) {
+
         ProductDTO dto=null;
         if(id != null){
-            ProductEntity entity=productDAO.getProductEntityById(id);
+            ProductEntity entity=productDAO.getProductEntityByIdAndName(id,name);
 
             if(entity!=null){
                 dto=new ProductDTO(entity.getName(),entity.getPrice());
@@ -70,7 +69,6 @@ public class ProductServiceImpl implements ProductService {
         }else {
             dto=null;
         }
-
         return dto;
     }
 }

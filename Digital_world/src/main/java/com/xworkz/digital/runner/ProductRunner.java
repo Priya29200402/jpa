@@ -25,7 +25,7 @@ public class ProductRunner {
         service2.validateAndSave(list);
 
         //Finding dto by id
-        ProductDTO dto2= service2.findProductById(1);
+        ProductDTO dto2= service2.findProductByIdAndName(1,"Laptop");
         System.out.println("DTO Found:"+dto2);
     }
 }

@@ -9,5 +9,7 @@ public interface ProductService {
 
     public String validateAndSave(ProductDTO productDTO);
 
-    public ProductDTO findProductById(Integer id);
+    public ProductDTO findProductByIdAndName(Integer id,String name);
+
+
 }
